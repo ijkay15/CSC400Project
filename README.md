@@ -1,6 +1,6 @@
 # CSC400Project
 Files for 
-For the CSC400 project, my files are all contained in the project folder. The project folder was built in the Cloud SDK folder downloaded from Google Cloud. This allowed connection to Google Cloud services through the Google Cloud command line Shell. The project folder includes the following files and folders:
+For the CSC400 project, my files are all contained in the project folder. The project folder was built in the Cloud SDK folder downloaded from Google Cloud. This allowed connection to Google Cloud services through the Google Cloud command line Shell. There was also a Cloud_Proxy_SQL application in the Cloud SDK folder for connecting the local machine to the Cloud SQL Instance. The flask folder containing the flask library located in the project file was not included due to size. The project folder includes the following files and folders:
 - app.yaml for App Engine deployment
 - requirements.txt for Google Cloud
 - two client_secret.json objects used for authorization to connect to Google Cloud services
