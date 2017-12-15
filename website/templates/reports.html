@@ -1,0 +1,13 @@
+{% extends "header.html" %}
+{% block body %}
+<body>
+<div class ="container">
+	<br>
+	<h4>Would you like to write or edit a report?</h4>
+	</br>
+	<a class="btn btn-primary" href="/Write/" role="button">Write</a>
+	<a class="btn btn-primary" href="/Edit/" role="button">Edit</a>
+	<p>{{error}}</p>
+</div>
+</body>
+{% endblock %}

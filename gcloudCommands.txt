@@ -1,0 +1,52 @@
+Google Cloud commands
+
+run proxy:
+	cloud_sql_proxy -instances="csc-400-project:us-central1:home-inspection-instance"=tcp:3306
+	
+use mysql notifier to start local database
+
+Web application
+OAUTH client id- 103341720469-ifmv4juc4635rbgk7a07n3kdbqkc9e3n.apps.googleusercontent.com
+OAUTH client secret- _UwVbFkPIBhPlgR9J_uAmZML
+
+Calendar API
+OAUTH client id- 103341720469-m5k3mkt89eiararcfk7tt3svi9mo6d0h.apps.googleusercontent.com
+OAUTH client secret- yAE7trGEBZ_FY-zpO-9NsAJu
+
+McAfee S/N: X88YGCA9JMCEDPM
+
+The name of the business is Sacred Ground Real Estate Services. 6506 Mendius Ave NE, Albuquerque, NM 87109.
+THe phone # is 505-514-4283 for now and is my personal cell.
+
+We are offering real estate inspection services to buyers, sellers, real estate agents, and mortgage brokers.These can be pre sale
+ or post contract signing as well as home maintenance as in the case of the duct inspections.
+
+We will be starting with complete home inspections, in floor duct inspections, and starting soon sewer line inspections. 
+Future plans are for roof drone inspections, and radon inspections,
+
+ I will send you an email with the business card and a copy of the duct inspection template. 
+ I can't send the home inspection template because it is in an application. let me see what I can figure out.
+
+We would like to see a picture similar to the one on the front of the business card and the Road Runner on the back which will be our logo.
+We would like to see the same colors as are on the business card with maybe something in turquois
+
+cosu83stsjnm94l9i1l3ld3cr8@group.calendar.google.com
+158j74jl6ak28oidcl3v2kfadi
+
+
+#new oath client id- 103341720469-5ct9ik4psiqib4d40vl0ul76oohinp18.apps.googleusercontent.com
+#new oath client secret- CXrBcqaq8InL2s1l2g0j14ym
+
+oath client id- 103341720469-46d9qe3l4ujaafq864sli1prmb89tgr5.apps.googleusercontent.com
+oath client secret- HgzQw2ebSB-qWqqlW7QvIOVG
+
+RoadRunner Background - Hue=0, Sat=240, Lum=72, Red=153, Green, Blue = 0,0
+
+requirements.txt
+#google-api-python-client
+httplib2
+uritemplate
+
+
+GOOD QUERY
+Select * from Reports left join Address on Reports.Rid = Address.RID where Reports.RID = 10;

@@ -1,0 +1,308 @@
+{% extends "header.html" %}
+{% block body %}
+<body>
+
+<div class ="container">
+		<br>
+		<h2>Please Enter Report Information:</h2>
+		</br>
+		{% from "_formhelpers.html" import render_field %}
+		<form method=post action="/Write/">
+			<dl>
+			    <p><b>Report ID</b></p>
+				<input id="RID" name="RID" type="text" readonly="readonly" value={{rid}}>
+				{{render_field(rform.Date)}}
+				<p><b>User ID</b></p>
+				<input id="UID" name="UID" type="text" readonly="readonly" value={{uid}}>
+			</dl>
+			<br><h3>Address Info</h3></br>
+			<dl>
+				{{render_field(aform.Requester)}}
+				{{render_field(aform.StreetAddress)}}
+				{{render_field(aform.City)}}
+				{{render_field(aform.State)}}
+				{{render_field(aform.ZipCode)}}
+			</dl>
+			<br><h3>Roof and Attic Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(raform.RoofCoverings)}}
+				{{render_field(raform.RCInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(raform.Flashings)}}
+				{{render_field(raform.FlasInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(raform.SkylightChimney)}}
+				{{render_field(raform.SkChInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(raform.aVentilation)}}
+				{{render_field(raform.aVentInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(raform.aDrainage)}}
+				{{render_field(raform.aDraiInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(raform.StructureAttic)}}
+				{{render_field(raform.StAtInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(raform.FansThermostat)}}
+				{{render_field(raform.FaThInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(raform.aInsulation)}}
+				{{render_field(raform.aInsuInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(raform.VisibleWiring)}}
+				{{render_field(raform.ViWiInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>Exterior Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(exform.WallFlashTrim)}}
+				{{render_field(exform.WaFTInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(exform.exDoors)}}
+				{{render_field(exform.exDoorInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(exform.exWindows)}}
+				{{render_field(exform.exWindInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(exform.DeckBalcSteps)}}
+				{{render_field(exform.DeBSInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(exform.VegetDrainDriveWalk)}}
+				{{render_field(exform.VDDWInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(exform.EavesFascia)}}
+				{{render_field(exform.EaFaInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(exform.exPlumbing)}}
+				{{render_field(exform.exPlumInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(exform.Outlets)}}
+				{{render_field(exform.OutlInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>Garage Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(gform.gCeiling)}}
+				{{render_field(gform.gCeilInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(gform.gWalls)}}
+				{{render_field(gform.gWallInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(gform.gFloor)}}
+				{{render_field(gform.gFlooInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(gform.gDoor)}}
+				{{render_field(gform.gDoorInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(gform.InnerDoor)}}
+				{{render_field(gform.InDoInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(gform.GDOperator)}}
+				{{render_field(gform.GDOpInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>Kitchen Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(kform.kCeiling)}}
+				{{render_field(kform.kCeilInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.kWalls)}}
+				{{render_field(kform.kWallInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.kFloor)}}
+				{{render_field(kform.kFlooInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.PantryDoor)}}
+				{{render_field(kform.PaDoInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.kWindows)}}
+				{{render_field(kform.kWindInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.kCountersCabinets)}}
+				{{render_field(kform.kCoCaInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.kPlumbing)}}
+				{{render_field(kform.kPlumInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.kOutletSwitchFix)}}
+				{{render_field(kform.kOuSFInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.Dishwash)}}
+				{{render_field(kform.DishInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.RangeOven)}}
+				{{render_field(kform.RaOvInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(kform.Microwave)}}
+				{{render_field(kform.MicrInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>Rooms Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(roform.rCeiling)}}
+				{{render_field(roform.rCeilInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(roform.rWalls)}}
+				{{render_field(roform.rWallInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(roform.rFloor)}}
+				{{render_field(roform.rFlooInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(roform.StairRailBalc)}}
+				{{render_field(roform.SRBaInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(roform.rDoor)}}
+				{{render_field(roform.rDoorInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(roform.rWindows)}}
+				{{render_field(roform.rWindInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(roform.rOutletSwitchFix)}}
+				{{render_field(roform.rOuSFInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>Bathroom Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(bform.CounterCabinet)}}
+				{{render_field(bform.bCoCaInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(bform.bDoor)}}
+				{{render_field(bform.bDoorInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(bform.bWindows)}}
+				{{render_field(bform.bWindInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(bform.bPlumbing)}}
+				{{render_field(bform.bPlumInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(bform.bOutletSwitchFix)}}
+				{{render_field(bform.bOuSFInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(bform.ExhaustFan)}}
+				{{render_field(bform.ExFaInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>Structure Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(sform.FoundBasement)}}
+				{{render_field(sform.FoBaInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(sform.sWalls)}}
+				{{render_field(sform.sWallInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(sform.Columns)}}
+				{{render_field(sform.ColuInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(sform.sFloors)}}
+				{{render_field(sform.sFlooInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(sform.sCeiling)}}
+				{{render_field(sform.sCeilInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(sform.sInsulation)}}
+				{{render_field(sform.sInsuInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(sform.VaporRetarders)}}
+				{{render_field(sform.VaReInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(sform.sVentilation)}}
+				{{render_field(sform.sVentInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>Plumbing Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(pform.DrainWasteVent)}}
+				{{render_field(pform.DrWVInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(pform.H2OSupplyDist)}}
+				{{render_field(pform.HSDiInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(pform.HotWaterSupply)}}
+				{{render_field(pform.HWSuInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(pform.MainShut)}}
+				{{render_field(pform.MaShInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(pform.FuelStorDist)}}
+				{{render_field(pform.FSDiInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(pform.FuelShut)}}
+				{{render_field(pform.FuShInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>Electrical Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(elform.EntrConductor)}}
+				{{render_field(elform.EnCoInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(elform.ServGroundOverMainPanel)}}
+				{{render_field(elform.SGOPInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(elform.BranchEquip)}}
+				{{render_field(elform.BrEqInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(elform.DevFix)}}
+				{{render_field(elform.DeFiInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(elform.PolarityGround)}}
+				{{render_field(elform.PoGrInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(elform.OpGFCI)}}
+				{{render_field(elform.GFCIInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(elform.SmokeDetect)}}
+				{{render_field(elform.SmDeInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(elform.CarbMonDet)}}
+				{{render_field(elform.CaMoInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(elform.LocatMainDistPan)}}
+				{{render_field(elform.LMDPInsp)}}</div>
+				</div>
+			</dl>
+			<br><h3>HVAC Information</h3></br>
+			<dl>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				{{render_field(hcaform.HeatEquip)}}
+				{{render_field(hcaform.HeEqInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(hcaform.NormOpCont)}}
+				{{render_field(hcaform.NOCoInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(hcaform.AutoSafeCont)}}
+				{{render_field(hcaform.ASCoInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(hcaform.DistSys)}}
+				{{render_field(hcaform.DiSyInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(hcaform.ChimneyFlueVent)}}
+				{{render_field(hcaform.CFVeInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(hcaform.SolidFuelHeatDev)}}
+				{{render_field(hcaform.SFHDInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(hcaform.CoolAirHandEq)}}
+				{{render_field(hcaform.CAHEInsp)}}</div>
+				<div class ="col" style="border: thin solid black">
+				{{render_field(hcaform.NormOpEq)}}
+				{{render_field(hcaform.NOEqInsp)}}</div>
+				</div>
+			</dl>
+			<p><input type=submit value=Submit></p>
+		</form>
+
+		{% if error %}
+			<p class="error"><strong>Error:</strong>{{error}}</p>
+		{% endif %}
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "header.html" %}
+{% block body %}
+<body>
+	<div class="container-fluid" style="min-height=100% width:80%">
+		<embed src="{{ url_for('static', filename=fileExt) }}" title="Report" id="Report" width="1450" height="860" >
+		<param name="Report" >
+	</div>
+</body>
+{% endblock %}

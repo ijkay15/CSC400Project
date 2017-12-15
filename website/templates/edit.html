@@ -1,0 +1,436 @@
+{% extends "header.html" %}
+
+{% block body %}
+<body>
+
+<div class ="container">
+	{% if request.method == "GET" %}
+
+	
+	<br>
+	<h4>Please enter report ID of report to edit:</h4>
+	</br>
+	{% from "_formhelpers.html" import render_field %}
+	<form method=post action="/Edit/">
+			<dl>
+			    <b>Report ID</b>
+				<p><input id="RID" name="RID" type="text" value=></p>
+			</dl>
+		<p><input type=submit value=Search></p>
+		<!--<input class="btn btn-default" type="submit" value="Search">-->
+	</form>
+	{% endif %}
+	</div>
+	
+<div class="container">	
+	{% if request.method == "POST" %}
+		{% from "_formhelpers.html" import render_field %}
+		
+		<form method=post action="/Edit/">
+		<br><h3>Report and Address Information</h3></br>
+			<dl>
+			<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				
+				<b>Report ID</b>
+				<p><input id="RID" name="RID" type="text" readonly="readonly" value={{rid}}></p>
+				<b>Date</b>
+				<p><input id="Date" name="Date" type="text" readonly="readonly" value={{date}}></p>
+				<b>User ID</b>
+				<p><input id="UID" name="UID" type="text" readonly="readonly" value={{uid}}></p>
+				<b>Requester</b>
+				<p><input id="req" name="req" type="text" value="{{req}}"></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Street</b>
+				<p><input id="street" name="street" type="text" value="{{street}}"></p>
+				<b>City</b>
+				<p><input id="city" name="city" type="text" value="{{city}}"></p>
+				<b>State</b>
+				<p><input id="st" name="st" type="text" value="{{st}}"></p>
+				<b>Zip Code</b>
+				<p><input id="zip" name="zip" type="text" value="{{zip}}"></p></div></div>
+				
+				<br><h3>Roof and Attic Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Roof Coverings</b>
+				<p><input id="rarc" name="rarc" type="text" value={{rarc}}></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rarci" name="rarci" type="checkbox" value="{{rarci}}" {% if rarci==True %} checked {% endif %}></p>
+				<b>Flashings</b>
+				<p><input id="rafl" name="rafl" type="text" value="{{rafl}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rafli" name="rafli" type="checkbox" value="{{rafli}}" {% if rafli==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Skylight & Chimney</b>
+				<p><input id="rasc" name="rasc" type="text" value="{{rasc}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rasci" name="rasci" type="checkbox" value="{{rasci}}" {% if rasci==True %} checked {% endif %}></p>
+				<b>Ventilation</b>
+				<p><input id="rave" name="rave" type="text" value="{{rave}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="ravei" name="ravei" type="checkbox" value="{{ravei}}" {% if ravei==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Drainage</b>
+				<p><input id="radr" name="radr" type="text" value="{{radr}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="radri" name="radri" type="checkbox" value="{{radri}}" {% if radri==True %} checked {% endif %}></p>
+				<b>Attic Structure</b>
+				<p><input id="raas" name="raas" type="text" value="{{raas}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="raasi" name="raasi" type="checkbox" value="{{raasi}}" {% if raasi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Fans & Thermostat</b>
+				<p><input id="raft" name="raft" type="text" value="{{raft}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rafti" name="rafti" type="checkbox" value="{{rafti}}" {% if rafti==True %} checked {% endif %}></p>
+				<b>Insulation</b>
+				<p><input id="rain" name="rain" type="text" value="{{rain}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="raini" name="raini" type="checkbox" value="{{raini}}" {% if raini==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Visible Wiring</b>
+				<p><input id="ravw" name="ravw" type="text" value="{{ravw}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="ravwi" name="ravwi" type="checkbox" value="{{ravwi}}" {% if ravwi==True %} checked {% endif %}></p></div></div>
+				
+				<br><h3>Exterior Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Walls, Flashings, & Trim</b>
+				<p><input id="exwf" name="exwf" type="text" value="{{exwf}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="exwfi" name="exwfi" type="checkbox" value="{{exwfi}}" {% if exwfi==True %} checked {% endif %}></p>
+				<b>Doors</b>
+				<p><input id="exdo" name="exdo" type="text" value="{{exdo}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="exdoi" name="exdoi" type="checkbox" value="{{exdoi}}" {% if exdoi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Windows</b>
+				<p><input id="exwi" name="exwi" type="text" value="{{exwi}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="exwii" name="exwii" type="checkbox" value="{{exwii}}" {% if exwii==True %} checked {% endif %}></p>
+				<b>Deck, Balcony, & Steps</b>
+				<p><input id="exdb" name="exdb" type="text" value="{{exdb}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="exdbi" name="exdbi" type="checkbox" value="{{exdbi}}" {% if exdbi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Vegetation, Drains, Drive- & Walkways</b>
+				<p><input id="exvd" name="exvd" type="text" value="{{exvd}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="exvdi" name="exvdi" type="checkbox" value="{{exvdi}}" {% if exvdi==True %} checked {% endif %}></p>
+				<b>Eaves & Fascia</b>
+				<p><input id="exea" name="exea" type="text" value="{{exea}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="exeai" name="exeai" type="checkbox" value="{{exeai}}" {% if exeai==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Plumbing</b>
+				<p><input id="expl" name="expl" type="text" value="{{expl}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="expli" name="expli" type="checkbox" value="{{expli}}" {% if expli==True %} checked {% endif %}></p>
+				<b>Outlets</b>
+				<p><input id="exou" name="exou" type="text" value="{{exou}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="exoui" name="exoui" type="checkbox" value="{{exoui}}" {% if exoui==True %} checked {% endif %}></p></div></div>
+				
+				<br><h3>Garage Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Garage Ceiling</b>
+				<p><input id="gace" name="gace" type="text" value="{{gace}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="gacei" name="gacei" type="checkbox" value="{{gacei}}" {% if gacei==True %} checked {% endif %}></p>
+				<b>Garage Walls</b>
+				<p><input id="gawa" name="gawa" type="text" value="{{gawa}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="gawai" name="gawai" type="checkbox" value="{{gawai}}" {% if gawai==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Garage Floor</b>
+				<p><input id="gafl" name="gafl" type="text" value="{{gafl}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="gafli" name="gafli" type="checkbox" value="{{gafli}}" {% if gafli==True %} checked {% endif %}></p>
+				<b>Garage Door</b>
+				<p><input id="gado" name="gado" type="text" value="{{gado}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="gadoi" name="gadoi" type="checkbox" value="{{gadoi}}" {% if gadoi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Door from Garage to House</b>
+				<p><input id="gadg" name="gadg" type="text" value="{{gadg}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="gadgi" name="gadgi" type="checkbox" value="{{gadgi}}" {% if gadgi==True %} checked {% endif %}></p>
+				<b>Garage Door Operators</b>
+				<p><input id="gaop" name="gaop" type="text" value="{{gaop}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="gaopi" name="gaopi" type="checkbox" value="{{gaopi}}" {% if gaopi==True %} checked {% endif %}></p></div></div>
+			
+				<br><h3>Kitchen Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Ceiling</b>
+				<p><input id="kice" name="kice" type="text" value="{{kice}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kicei" name="kicei" type="checkbox" value="{{kicei}}" {% if kicei==True %} checked {% endif %}></p>
+				<b>Walls</b>
+				<p><input id="kiwa" name="kiwa" type="text" value="{{kiwa}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kiwai" name="kiwai" type="checkbox" value="{{kiwai}}" {% if kiwai==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Floor</b>
+				<p><input id="kifl" name="kifl" type="text" value="{{kifl}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kifli" name="kifli" type="checkbox" value="{{kifli}}" {% if kifli==True %} checked {% endif %}></p>
+				<b>Pantry Door</b>
+				<p><input id="kipd" name="kipd" type="text" value="{{kipd}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kipdi" name="kipdi" type="checkbox" value="{{kipdi}}" {% if kipdi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Windows</b>
+				<p><input id="kiwi" name="kiwi" type="text" value="{{kiwi}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kiwii" name="kiwii" type="checkbox" value="{{kiwii}}" {% if kiwii==True %} checked {% endif %}></p>
+				<b>Counters & Cabinets</b>
+				<p><input id="kicc" name="kicc" type="text" value="{{kicc}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kicci" name="kicci" type="checkbox" value="{{kicci}}" {% if kicci==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Plumbing</b>
+				<p><input id="kipl" name="kipl" type="text" value="{{kipl}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kipli" name="kipli" type="checkbox" value="{{kipli}}" {% if kipli==True %} checked {% endif %}></p>
+				<b>Outlets, Switches, & Fixtures</b>
+				<p><input id="kios" name="kios" type="text" value="{{kios}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kiosi" name="kiosi" type="checkbox" value="{{kiosi}}" {% if kiosi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Dishwasher</b>
+				<p><input id="kidi" name="kidi" type="text" value="{{kidi}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kidii" name="kidii" type="checkbox" value="{{kidii}}" {% if kidii==True %} checked {% endif %}></p>
+				<b>Range & Oven</b>
+				<p><input id="kiro" name="kiro" type="text" value="{{kiro}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kiroi" name="kiroi" type="checkbox" value="{{kiroi}}" {% if kiroi==True %} checked {% endif %}></p>
+				<b>Microwave</b>
+				<p><input id="kimi" name="kimi" type="text" value="{{kimi}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="kimii" name="kimii" type="checkbox" value="{{kimii}}" {% if kimii==True %} checked {% endif %}></p></div></div>
+				
+				<br><h3>Rooms Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Ceiling</b>
+				<p><input id="roce" name="roce" type="text" value="{{roce}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rocei" name="rocei" type="checkbox" value="{{rocei}}" {% if rocei==True %} checked {% endif %}></p>
+				<b>Walls</b>
+				<p><input id="rowa" name="rowa" type="text" value="{{rowa}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rowai" name="rowai" type="checkbox" value="{{rowai}}" {% if rowai==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Floor</b>
+				<p><input id="rofl" name="rofl" type="text" value="{{rofl}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rofli" name="rofli" type="checkbox" value="{{rofli}}" {% if rofli==True %} checked {% endif %}></p>
+				<b>Stairs, Balconies, & Railings</b>
+				<p><input id="rosb" name="rosb" type="text" value="{{rosb}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rosbi" name="rosbi" type="checkbox" value="{{rosbi}}" {% if rosbi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Doors</b>
+				<p><input id="rodo" name="rodo" type="text" value="{{rodo}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rodoi" name="rodoi" type="checkbox" value="{{rodoi}}" {% if rodoi==True %} checked {% endif %}></p>
+				<b>Windows</b>
+				<p><input id="rowi" name="rowi" type="text" value="{{rowi}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="rowii" name="rowii" type="checkbox" value="{{rowii}}" {% if rowii==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Outlets, Switches, & Fixtures</b>
+				<p><input id="roos" name="roos" type="text" value="{{roos}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="roosi" name="roosi" type="checkbox" value="{{roosi}}" {% if roosi==True %} checked {% endif %}></p></div></div>
+				
+				<br><h3>Bathrooms Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Counters & Cabinets</b>
+				<p><input id="bacc" name="bacc" type="text" value="{{bacc}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="bacci" name="bacci" type="checkbox" value="{{bacci}}" {% if bacci==True %} checked {% endif %}></p>
+				<b>Doors</b>
+				<p><input id="bado" name="bado" type="text" value="{{bado}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="badoi" name="badoi" type="checkbox" value="{{badoi}}" {% if badoi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Windows</b>
+				<p><input id="bawi" name="bawi" type="text" value="{{bawi}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="bawii" name="bawii" type="checkbox" value="{{bawii}}" {% if bawii==True %} checked {% endif %}></p>
+				<b>Plumbing</b>
+				<p><input id="bapl" name="bapl" type="text" value="{{bapl}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="bapli" name="bapli" type="checkbox" value="{{bapli}}" {% if bapli==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Outlets, Switches, & Fixtures</b>
+				<p><input id="baos" name="baos" type="text" value="{{baos}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="baosi" name="baosi" type="checkbox" value="{{baosi}}" {% if baosi==True %} checked {% endif %}></p>
+				<b>Exhaust Fan</b>
+				<p><input id="baef" name="baef" type="text" value="{{baef}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="baefi" name="baefi" type="checkbox" value="{{baefi}}" {% if baefi==True %} checked {% endif %}></p></div></div>
+				
+				<br><h3>Structure Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Foundation, Basement, & Crawlspaces</b>
+				<p><input id="stfb" name="stfb" type="text" value="{{stfb}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="stfbi" name="stfbi" type="checkbox" value="{{stfbi}}" {% if stfbi==True %} checked {% endif %}></p>
+				<b>Walls</b>
+				<p><input id="stwa" name="stwa" type="text" value="{{stwa}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="stwai" name="stwai" type="checkbox" value="{{stwai}}" {% if stwai==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Columns</b>
+				<p><input id="stco" name="stco" type="text" value="{{stco}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="stcoi" name="stcoi" type="checkbox" value="{{stcoi}}" {% if stcoi==True %} checked {% endif %}></p>
+				<b>Floors</b>
+				<p><input id="stfl" name="stfl" type="text" value="{{stfl}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="stfli" name="stfli" type="checkbox" value="{{stfli}}" {% if stfli==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Ceiling</b>
+				<p><input id="stce" name="stce" type="text" value="{{stce}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="stcei" name="stcei" type="checkbox" value="{{stcei}}" {% if stcei==True %} checked {% endif %}></p>
+				<b>Insulation</b>
+				<p><input id="stin" name="stin" type="text" value="{{stin}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="stini" name="stini" type="checkbox" value="{{stini}}" {% if stini==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Vapor Retarders</b>
+				<p><input id="stvr" name="stvr" type="text" value="{{stvr}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="stvri" name="stvri" type="checkbox" value="{{stvri}}" {% if stvri==True %} checked {% endif %}></p>
+				<b>Ventilation</b>
+				<p><input id="stve" name="stve" type="text" value="{{stve}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="stvei" name="stvei" type="checkbox" value="{{stvei}}" {% if stvei==True %} checked {% endif %}></p></div></div>
+				
+				<br><h3>Plumbing Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Plumbing Drain, Waste, & Vent Systems</b>
+				<p><input id="pldw" name="pldw" type="text" value="{{pldw}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="pldwi" name="pldwi" type="checkbox" value="{{pldwi}}" {% if pldwi==True %} checked {% endif %}></p>
+				<b>Water Supply & Distribution</b>
+				<p><input id="plws" name="plws" type="text" value="{{plws}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="plwsi" name="plwsi" type="checkbox" value="{{plwsi}}" {% if plwsi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Hot Water Systems</b>
+				<p><input id="plhw" name="plhw" type="text" value="{{plhw}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="plhwi" name="plhwi" type="checkbox" value="{{plhwi}}" {% if plhwi==True %} checked {% endif %}></p>
+				<b>Main Water Shutoff</b>
+				<p><input id="plmw" name="plmw" type="text" value="{{plmw}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="plmwi" name="plmwi" type="checkbox" value="{{plmwi}}" {% if plmwi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Fuel Storage and Distribution</b>
+				<p><input id="plfs" name="plfs" type="text" value="{{plfs}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="plfsi" name="plfsi" type="checkbox" value="{{plfsi}}" {% if plfsi==True %} checked {% endif %}></p>
+				<b>Main Fuel Shutoff</b>
+				<p><input id="plmf" name="plmf" type="text" value="{{plmf}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="plmfi" name="plmfi" type="checkbox" value="{{plmfi}}" {% if plmfi==True %} checked {% endif %}></p></div></div>
+				
+				<br><h3>Electrical Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Service Entrance Conductors</b>
+				<p><input id="elsc" name="elsc" type="text" value="{{elsc}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="elsci" name="elsci" type="checkbox" value="{{elsci}}" {% if elsci==True %} checked {% endif %}></p>
+				<b>Service/Grounding Equipment, Main OverCurrent Device, Main & Dist. Panels</b>
+				<p><input id="elsg" name="elsg" type="text" value="{{elsg}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="elsgi" name="elsgi" type="checkbox" value="{{elsgi}}" {% if elsgi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Branch Circuit Equipment</b>
+				<p><input id="elbc" name="elbc" type="text" value="{{elbc}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="elbci" name="elbci" type="checkbox" value="{{elbci}}" {% if elbci==True %} checked {% endif %}></p>
+				<b>Devices & Fixtures</b>
+				<p><input id="eldf" name="eldf" type="text" value="{{eldf}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="eldfi" name="eldfi" type="checkbox" value="{{eldfi}}" {% if eldfi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Polarity & Grounding Receptacles</b>
+				<p><input id="elpg" name="elpg" type="text" value="{{elpg}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="elpgi" name="elpgi" type="checkbox" value="{{elpgi}}" {% if elpgi==True %} checked {% endif %}></p>
+				<b>Operation of GFCI</b>
+				<p><input id="elog" name="elog" type="text" value="{{elog}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="elogi" name="elogi" type="checkbox" value="{{elogi}}" {% if elogi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Smoke Detectors</b>
+				<p><input id="elsd" name="elsd" type="text" value="{{elsd}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="elsdi" name="elsdi" type="checkbox" value="{{elsdi}}" {% if elsdi==True %} checked {% endif %}></p>
+				<b>Carbon Monoxide Detectors</b>
+				<p><input id="elcm" name="elcm" type="text" value="{{elcm}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="elcmi" name="elcmi" type="checkbox" value="{{elcmi}}" {% if elcmi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Location of Main & Distribution Panels</b>
+				<p><input id="ellm" name="ellm" type="text" value="{{ellm}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="ellmi" name="ellmi" type="checkbox" value="{{ellmi}}" {% if ellmi==True %} checked {% endif %}></p></div></div>
+				
+				<br><h3>HVAC Information</h3></br>
+				<div class ="row" style="border: thin solid black"><div class ="col" style="border: thin solid black">
+				<b>Heating Equipment</b>
+				<p><input id="hvhe" name="hvhe" type="text" value="{{hvhe}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="hvhei" name="hvhei" type="checkbox" value="{{hvhei}}" {% if hvhei==True %} checked {% endif %}></p>
+				<b>Normal Operating Controls</b>
+				<p><input id="hvno" name="hvno" type="text" value="{{hvno}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="hvnoi" name="hvnoi" type="checkbox" value="{{hvnoi}}" {% if hvnoi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Automatic Safety Controls</b>
+				<p><input id="hvas" name="hvas" type="text" value="{{hvas}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="hvasi" name="hvasi" type="checkbox" value="{{hvasi}}" {% if hvasi==True %} checked {% endif %}></p>
+				<b>Distribution Systems</b>
+				<p><input id="hvds" name="hvds" type="text" value="{{hvds}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="hvdsi" name="hvdsi" type="checkbox" value="{{hvdsi}}" {% if hvdsi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Chimneys, Flues, & Vents</b>
+				<p><input id="hvcf" name="hvcf" type="text" value="{{hvcf}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="hvcfi" name="hvcfi" type="checkbox" value="{{hvcfi}}" {% if hvcfi==True %} checked {% endif %}></p>
+				<b>Solid Fuel Heating Devices</b>
+				<p><input id="hvsf" name="hvsf" type="text" value="{{hvsf}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="hvsfi" name="hvsfi" type="checkbox" value="{{hvsfi}}" {% if hvsfi==True %} checked {% endif %}></p></div>
+				<div class ="col" style="border: thin solid black">
+				<b>Cooling & Air Handler Equipment</b>
+				<p><input id="hvca" name="hvca" type="text" value="{{hvca}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="hvcai" name="hvcai" type="checkbox" value="{{hvcai}}" {% if hvcai==True %} checked {% endif %}></p>
+				<b>Normal Operating Equipment</b>
+				<p><input id="hvne" name="hvne" type="text" value="{{hvne}}"></p>
+				<b>Inspected/ Not Inspected</b>
+				<p><input id="hvnei" name="hvnei" type="checkbox" value="{{hvnei}}" {% if hvnei==True %} checked {% endif %}></p></div></div>
+			
+			</dl>
+			<!--<a href="//pdfcrowd.com/url_to_pdf/">Save to PDF</a>-->
+			<p><input type=submit value=Submit> &nbsp &nbsp <input id="check" name="check" type="checkbox" value=""><label for="check"> &nbsp Please check if changes made</label></p>
+		</form></div>
+	{% endif %}
+	
+	<p>{{error}}</p>
+	
+
+</div>
+
+</body>
+{% endblock %}
